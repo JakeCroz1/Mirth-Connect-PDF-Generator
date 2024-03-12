@@ -16,7 +16,7 @@
  </li>
   <li><a href="https://search.maven.org/search?q=g:com.github.librepdf" target="_blank">OpenPDF Jar File</a> Note: locate openpdf in the Artifact id column in table. Next, click the download button. Finally, select the <b>"Jar"</b> file.</li>
 </ul>
-<h2>Instructions:</h2>
+<h2>Instructions</h2>
 <ol>
   <li>Download or clone this repository because we will need to access files later on.</li>
   <li>Download <a href="https://www.nextgen.com/solutions/interoperability/mirth-integration-engine/mirth-connect-downloads" target="_blank">Mirth Connect 4.5.0</a>.</li>
