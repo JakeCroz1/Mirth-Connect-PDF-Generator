@@ -1,3 +1,8 @@
+//Source: https://librepdf.github.io/OpenPDF/docs-1-2-7/allclasses-noframe.html
+//OpenPDF Classes: https://docs.oracle.com/javase/8/docs/api/allclasses-noframe.html
+//HL7 Messages: https://confluence.hl7.org/display/OO/v2+Sample+Messages
+//headerfooter: https://github.com/LibrePDF/OpenPDF/blob/master/pdf-toolbox/src/test/java/com/lowagie/examples/footer/Footer.java
+//OpenPDF Jar: https://search.maven.org/search?q=g:com.github.librepdf
 var Document = Packages.com.lowagie.text.Document;
 var PageSize = Packages.com.lowagie.text.PageSize;
 var PdfWriter = Packages.com.lowagie.text.pdf.PdfWriter;
