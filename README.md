@@ -21,15 +21,14 @@
   <li>Download or clone this repository because we will need to access files later on.</li>
   <li>Download <a href="https://www.nextgen.com/solutions/interoperability/mirth-integration-engine/mirth-connect-downloads" target="_blank">Mirth Connect 4.5.0</a>.</li>
   <li>Follow instructions on how to install Mirth Connect 4.5.0 <a href="https://docs.nextgen.com/bundle/Mirth_User_Guide_4_5/page/connect/connect/topics/t_Download_and_Installation_connect_ug.html" target="_blank">instructions</a></li>
-  <li>Once Mirth Connect is installed, start Mirth Connect Server.</li>
-  <li>Next, open and login into Mirth Connect Administrator Launcher.</li>
+  <li>Once Mirth Connect is installed, start "Mirth Connect Server".</li>
+  <li>Next, open and login into "Mirth Connect Administrator Launcher".</li>
   <li>On the left you will see a drop down menu that is called, "Mirth Connect". Click on "Channels".</li>
-  <li>Now, on the left, you will see a drop down menu that is called, "Channel Tasks". Click on "Import Channel". Locate the file, "JSON to File_Channel.xml", in the repository that was downloaded or cloned. The path to the file is: "...\Mirth\Export Files\Channels". Click the open button.</li>
+  <li>Now, on the left, you will see a drop down menu that is called, "Channel Tasks". Click on "Import Channel". Locate the file, "JSON to File_Channel.xml", in the repository that was downloaded or cloned. The path to the file is: "...\Mirth\Export Files\Channels". Click the "open" button.</li>
   <li>After you successfully imported the Channel, locate the "custom-lib" folder where you installed "Mirth Connect". It might be located at the path of "C:\Program Files\Mirth Connect\custom-lib". Copy and past the "openpdf-2.0.1.jar" file in the "custom-lib" folder. The "openpdf-2.0.1.jar" file is located in the repository: "...\Mirth-Connect-PDF-Generator\Scripts\OpenPDF\openpdf-2.0.1.jar".</li>
-  <li>Next, go to Mirth Connect Administrator Launcher. To the left you will see a dropdown menu that is called, "Mirth Connect". Under that menu, click on "Channels". Right click on the channel called, "JSON to file" then select "Edit Channel". Select the "Destinations" tab. In the Javascript below, change the "fileOutputPath" variable to a path that is in your file system.</li>
-  <li>Open up your browser and then enter the following url into the address bar: https://192.168.56.1:8443/api/ That URL I provided may be incorrect. To find the correct URL, open "Mirth Connect Server", here you can find the URL that "Mirth Connect Server" generated for you. Replace the IP address and port number as needed. Ex.) https://xxx.xxx.xx.x:xxxx/api/</li>
+  <li>Next, go to "Mirth Connect Administrator Launcher". To the left you will see a dropdown menu that is called, "Mirth Connect". Under that menu, click on "Channels". Right click on the channel called, "JSON to file" then select "Edit Channel". Select the "Destinations" tab. In the Javascript below, change the "fileOutputPath" variable to a path that is in your file system.</li>
+  <li>Open up your browser and then enter the following url into the address bar: "https://192.168.56.1:8443/api/". That URL I provided maybe incorrect. To find the correct URL, open "Mirth Connect Server", here you can find the URL that "Mirth Connect Server" generated for you. Replace the IP address and port number as needed. Ex.) "https://xxx.xxx.xx.x:xxxx/api/"</li>
   <li>That URL will bring you to the "Mirth Connect Client API". Before continuing, make sure to login with your Administrator credentials.</li>
-  <li>Click on the Try it Out button.</li>
   <li>Now select messages then select "Post /channels/{channelId}/messages".</li>
   <li>Click the "Try it out" button located to the right.</li>
   <li>In the fields below, enter in the following values: 
