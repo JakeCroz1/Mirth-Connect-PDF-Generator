@@ -28,7 +28,7 @@
   <li>After you successfully imported the Channel, locate the "custom-lib" folder where you installed "Mirth Connect". It might be located at the path of "C:\Program Files\Mirth Connect\custom-lib". Copy and past the "openpdf-2.0.1.jar" file in the "custom-lib" folder. The "openpdf-2.0.1.jar" file is located in the repository: "...\Mirth-Connect-PDF-Generator\Scripts\OpenPDF\openpdf-2.0.1.jar".</li>
   <li>Next, go to Mirth Connect Administrator Launcher. To the left you will see a dropdown menu that is called, "Mirth Connect". Under that menu, click on "Channels". Right click on the channel called, "JSON to file" then select "Edit Channel". Select the "Destinations" tab. In the Javascript below, change the "fileOutputPath" variable to a path that is in your file system.</li>
   <li>Open up your browser and then enter the following url into the address bar: https://192.168.56.1:8443/api/ That URL I provided may be incorrect. To find the correct URL, open "Mirth Connect Server", here you can find the URL that "Mirth Connect Server" generated for you. Replace the IP address and port number as needed. Ex.) https://xxx.xxx.xx.x:xxxx/api/</li>
-  <li>That URL will bring to the ">Mirth Connect Client API". Before continuing, make sure to login with your Administrator credentials.</li>
+  <li>That URL will bring you to the "Mirth Connect Client API". Before continuing, make sure to login with your Administrator credentials.</li>
   <li>Click on the Try it Out button.</li>
   <li>Now select messages then select "Post /channels/{channelId}/messages".</li>
   <li>Click the "Try it out" button located to the right.</li>
