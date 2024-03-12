@@ -1,0 +1,301 @@
+{
+    "HL7Message" : {
+      "MSH" : {
+        "MSH.1" : "|",
+        "MSH.2" : "^~\\&",
+        "MSH.3" : {
+          "MSH.3.1" : "Ntierprise"
+        },
+        "MSH.4" : {
+          "MSH.4.1" : "Ntierprise Clinic"
+        },
+        "MSH.5" : {
+          "MSH.5.1" : "Healthmatics EHR"
+        },
+        "MSH.6" : {
+          "MSH.6.1" : "Healthmatics Clinic"
+        },
+        "MSH.7" : {
+          "MSH.7.1" : 20190423113910
+        },
+        "MSH.8" : null,
+        "MSH.9" : {
+          "MSH.9.1" : "ADT",
+          "MSH.9.2" : "A08"
+        },
+        "MSH.10" : {
+          "MSH.10.1" : "8899-39"
+        },
+        "MSH.11" : {
+          "MSH.11.1" : "P"
+        },
+        "MSH.12" : {
+          "MSH.12.1" : 2.3
+        },
+        "MSH.13" : null,
+        "MSH.14" : null,
+        "MSH.15" : {
+          "MSH.15.1" : "NE"
+        },
+        "MSH.16" : {
+          "MSH.16.1" : "NE"
+        }
+      },
+      "EVN" : {
+        "EVN.1" : {
+          "EVN.1.1" : "A08"
+        },
+        "EVN.2" : {
+          "EVN.2.1" : 20190423113910
+        },
+        "EVN.3" : null,
+        "EVN.4" : {
+          "EVN.4.1" : "01"
+        }
+      },
+      "PID" : {
+        "PID.1" : {
+          "PID.1.1" : 1
+        },
+        "PID.2" : null,
+        "PID.3" : {
+          "PID.3.1" : 151
+        },
+        "PID.4" : null,
+        "PID.5" : {
+          "PID.5.1" : "Bond",
+          "PID.5.2" : "Tiny"
+        },
+        "PID.6" : null,
+        "PID.7" : {
+          "PID.7.1" : 19990723
+        },
+        "PID.8" : {
+          "PID.8.1" : "M"
+        },
+        "PID.9" : null,
+        "PID.10" : null,
+        "PID.11" : {
+          "PID.11.1" : "8388 Secret Agent Way",
+          "PID.11.2" : null,
+          "PID.11.3" : "Raleigh",
+          "PID.11.4" : "NC",
+          "PID.11.5" : 27677
+        },
+        "PID.12" : null,
+        "PID.13" : null,
+        "PID.14" : null,
+        "PID.15" : null,
+        "PID.16" : null,
+        "PID.17" : null,
+        "PID.18" : {
+          "PID.18.1" : 151
+        },
+        "PID.19" : null,
+        "PID.20" : null,
+        "PID.21" : null,
+        "PID.22" : null,
+        "PID.23" : null,
+        "PID.24" : null,
+        "PID.25" : null,
+        "PID.26" : null,
+        "PID.27" : null,
+        "PID.28" : null,
+        "PID.29" : null,
+        "PID.30" : {
+          "PID.30.1" : "N"
+        }
+      },
+      "NK1" : {
+        "NK1.1" : {
+          "NK1.1.1" : 1
+        },
+        "NK1.2" : {
+          "NK1.2.1" : "Bond",
+          "NK1.2.2" : "Lady",
+          "NK1.2.3" : "T"
+        },
+        "NK1.3" : {
+          "NK1.3.1" : "Spouse",
+          "NK1.3.2" : "Spouse"
+        },
+        "NK1.4" : {
+          "NK1.4.1" : "007 Soho Lane",
+          "NK1.4.2" : null,
+          "NK1.4.3" : "Cary",
+          "NK1.4.4" : "NC",
+          "NK1.4.5" : 27511
+        },
+        "NK1.5" : {
+          "NK1.5.1" : "(919)007-0007",
+          "NK1.5.2" : null,
+          "NK1.5.3" : "PH",
+          "NK1.5.4" : null,
+          "NK1.5.5" : null,
+          "NK1.5.6" : 919,
+          "NK1.5.7" : "0070007"
+        }
+      },
+      "PV1" : {
+        "PV1.1" : {
+          "PV1.1.1" : 1
+        },
+        "PV1.2" : {
+          "PV1.2.1" : "R"
+        },
+        "PV1.3" : null,
+        "PV1.4" : null,
+        "PV1.5" : null,
+        "PV1.6" : null,
+        "PV1.7" : {
+          "PV1.7.1" : "Manning",
+          "PV1.7.2" : "Manning",
+          "PV1.7.3" : "Terry",
+          "PV1.7.4" : null,
+          "PV1.7.5" : null,
+          "PV1.7.6" : null,
+          "PV1.7.7" : null,
+          "PV1.7.8" : null,
+          "PV1.7.9" : {
+            "PV1.7.9.1" : null,
+            "PV1.7.9.2" : 7654321,
+            "PV1.7.9.3" : "UPIN"
+          }
+        },
+        "PV1.8" : null,
+        "PV1.9" : null,
+        "PV1.10" : null,
+        "PV1.11" : null,
+        "PV1.12" : null,
+        "PV1.13" : null,
+        "PV1.14" : null,
+        "PV1.15" : null,
+        "PV1.16" : {
+          "PV1.16.1" : "N"
+        },
+        "PV1.17" : null,
+        "PV1.18" : {
+          "PV1.18.1" : "A"
+        }
+      },
+      "GT1" : {
+        "GT1.1" : {
+          "GT1.1.1" : 1
+        },
+        "GT1.2" : {
+          "GT1.2.1" : 150
+        },
+        "GT1.3" : {
+          "GT1.3.1" : "Bond",
+          "GT1.3.2" : "James",
+          "GT1.3.3" : null,
+          "GT1.3.4" : "007"
+        },
+        "GT1.4" : null,
+        "GT1.5" : {
+          "GT1.5.1" : "007 Soho Lane",
+          "GT1.5.2" : null,
+          "GT1.5.3" : "Cary",
+          "GT1.5.4" : "NC",
+          "GT1.5.5" : 27511
+        },
+        "GT1.6" : [
+          {
+            "GT1.6.1" : "(919)007-0007",
+            "GT1.6.2" : null,
+            "GT1.6.3" : "PH",
+            "GT1.6.4" : null,
+            "GT1.6.5" : null,
+            "GT1.6.6" : 919,
+            "GT1.6.7" : "0070007"
+          },
+          {
+            "GT1.6.1" : "(777)707-0707",
+            "GT1.6.2" : null,
+            "GT1.6.3" : "CP",
+            "GT1.6.4" : null,
+            "GT1.6.5" : null,
+            "GT1.6.6" : 777,
+            "GT1.6.7" : 7070707
+          },
+          {
+            "GT1.6.1" : null,
+            "GT1.6.2" : "NET",
+            "GT1.6.3" : "X.400",
+            "GT1.6.4" : "007@BritishSecretService.com"
+          }
+        ],
+        "GT1.7" : {
+          "GT1.7.1" : "(919)851-6177 X007",
+          "GT1.7.2" : null,
+          "GT1.7.3" : null,
+          "GT1.7.4" : null,
+          "GT1.7.5" : null,
+          "GT1.7.6" : 919,
+          "GT1.7.7" : 8516177,
+          "GT1.7.8" : "007"
+        },
+        "GT1.8" : {
+          "GT1.8.1" : 19770920
+        },
+        "GT1.9" : {
+          "GT1.9.1" : "M"
+        },
+        "GT1.10" : null,
+        "GT1.11" : null,
+        "GT1.12" : {
+          "GT1.12.1" : "007-00-0007"
+        },
+        "GT1.13" : null,
+        "GT1.14" : null,
+        "GT1.15" : null,
+        "GT1.16" : null,
+        "GT1.17" : {
+          "GT1.17.1" : "2988 England Drive",
+          "GT1.17.2" : null,
+          "GT1.17.3" : "London",
+          "GT1.17.4" : "DC"
+        },
+        "GT1.18" : null,
+        "GT1.19" : null,
+        "GT1.20" : {
+          "GT1.20.1" : "F"
+        },
+        "GT1.21" : null,
+        "GT1.22" : null,
+        "GT1.23" : null,
+        "GT1.24" : null,
+        "GT1.25" : null,
+        "GT1.26" : null,
+        "GT1.27" : null,
+        "GT1.28" : null,
+        "GT1.29" : null,
+        "GT1.30" : {
+          "GT1.30.1" : "M"
+        },
+        "GT1.31" : null,
+        "GT1.32" : null,
+        "GT1.33" : null,
+        "GT1.34" : null,
+        "GT1.35" : null,
+        "GT1.36" : null,
+        "GT1.37" : null,
+        "GT1.38" : null,
+        "GT1.39" : null,
+        "GT1.40" : null,
+        "GT1.41" : null,
+        "GT1.42" : null,
+        "GT1.43" : null,
+        "GT1.44" : null,
+        "GT1.45" : null,
+        "GT1.46" : null,
+        "GT1.47" : null,
+        "GT1.48" : null,
+        "GT1.49" : null,
+        "GT1.50" : null,
+        "GT1.51" : {
+          "GT1.51.1" : "British Secret Service"
+        }
+      }
+    }
+  }

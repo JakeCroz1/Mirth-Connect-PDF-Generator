@@ -1,0 +1,150 @@
+<transformer version="4.5.0">
+  <elements>
+    <com.mirth.connect.plugins.mapper.MapperStep version="4.5.0">
+      <name>Message code</name>
+      <sequenceNumber>0</sequenceNumber>
+      <enabled>true</enabled>
+      <variable>Message code</variable>
+      <mapping>msg[&apos;HL7Message&apos;][&apos;MSH&apos;][&apos;MSH.9&apos;][&apos;MSH.9.1&apos;].toString().trim() + msg[&apos;HL7Message&apos;][&apos;MSH&apos;][&apos;MSH.9&apos;][&apos;MSH.9.2&apos;].toString().trim()</mapping>
+      <defaultValue></defaultValue>
+      <replacements/>
+      <scope>CHANNEL</scope>
+    </com.mirth.connect.plugins.mapper.MapperStep>
+    <com.mirth.connect.plugins.mapper.MapperStep version="4.5.0">
+      <name>Patient ID</name>
+      <sequenceNumber>1</sequenceNumber>
+      <enabled>true</enabled>
+      <variable>Patient ID</variable>
+      <mapping>msg[&apos;HL7Message&apos;][&apos;PID&apos;][&apos;PID.1&apos;][&apos;PID.1.1&apos;].toString().trim()</mapping>
+      <defaultValue></defaultValue>
+      <replacements/>
+      <scope>CHANNEL</scope>
+    </com.mirth.connect.plugins.mapper.MapperStep>
+    <com.mirth.connect.plugins.mapper.MapperStep version="4.5.0">
+      <name>Patient last name</name>
+      <sequenceNumber>2</sequenceNumber>
+      <enabled>true</enabled>
+      <variable>Patient last name</variable>
+      <mapping>msg[&apos;HL7Message&apos;][&apos;PID&apos;][&apos;PID.5&apos;][&apos;PID.5.1&apos;].toString().trim()</mapping>
+      <defaultValue></defaultValue>
+      <replacements/>
+      <scope>CHANNEL</scope>
+    </com.mirth.connect.plugins.mapper.MapperStep>
+    <com.mirth.connect.plugins.mapper.MapperStep version="4.5.0">
+      <name>Patient first name</name>
+      <sequenceNumber>3</sequenceNumber>
+      <enabled>true</enabled>
+      <variable>Patient first name</variable>
+      <mapping>msg[&apos;HL7Message&apos;][&apos;PID&apos;][&apos;PID.5&apos;][&apos;PID.5.2&apos;].toString().trim()</mapping>
+      <defaultValue></defaultValue>
+      <replacements/>
+      <scope>CHANNEL</scope>
+    </com.mirth.connect.plugins.mapper.MapperStep>
+    <com.mirth.connect.plugins.mapper.MapperStep version="4.5.0">
+      <name>Patient Date Of Birth</name>
+      <sequenceNumber>4</sequenceNumber>
+      <enabled>true</enabled>
+      <variable>Patient Date Of Birth</variable>
+      <mapping>msg[&apos;HL7Message&apos;][&apos;PID&apos;][&apos;PID.7&apos;][&apos;PID.7.1&apos;].toString().trim()</mapping>
+      <defaultValue></defaultValue>
+      <replacements/>
+      <scope>CHANNEL</scope>
+    </com.mirth.connect.plugins.mapper.MapperStep>
+    <com.mirth.connect.plugins.mapper.MapperStep version="4.5.0">
+      <name>Patient sex</name>
+      <sequenceNumber>5</sequenceNumber>
+      <enabled>true</enabled>
+      <variable>Patient sex</variable>
+      <mapping>msg[&apos;HL7Message&apos;][&apos;PID&apos;][&apos;PID.8&apos;][&apos;PID.8.1&apos;].toString().trim()</mapping>
+      <defaultValue></defaultValue>
+      <replacements/>
+      <scope>CHANNEL</scope>
+    </com.mirth.connect.plugins.mapper.MapperStep>
+    <com.mirth.connect.plugins.mapper.MapperStep version="4.5.0">
+      <name>Patient Address</name>
+      <sequenceNumber>6</sequenceNumber>
+      <enabled>true</enabled>
+      <variable>Patient Address</variable>
+      <mapping>msg[&apos;HL7Message&apos;][&apos;PID&apos;][&apos;PID.11&apos;][&apos;PID.11.1&apos;].toString().trim()</mapping>
+      <defaultValue></defaultValue>
+      <replacements/>
+      <scope>CHANNEL</scope>
+    </com.mirth.connect.plugins.mapper.MapperStep>
+    <com.mirth.connect.plugins.javascriptstep.JavaScriptStep version="4.5.0">
+      <name>Conversion</name>
+      <sequenceNumber>7</sequenceNumber>
+      <enabled>true</enabled>
+      <script>var hl7JsonObject = {
+	first_name: msg[&apos;HL7Message&apos;][&apos;PID&apos;][&apos;PID.5&apos;][&apos;PID.5.2&apos;].toString(),
+	last_name: msg[&apos;HL7Message&apos;][&apos;PID&apos;][&apos;PID.5&apos;][&apos;PID.5.1&apos;].toString(),
+	date_of_birth: moment(msg[&apos;HL7Message&apos;][&apos;PID&apos;][&apos;PID.7&apos;][&apos;PID.7.1&apos;].toString(),&quot;YYYYMMDD&amp;quot&quot;).format(&quot;YYYY-MM-DD&quot;) //yyyymmdd to yyyy-mm-dd
+	};
+channelMap.put(&quot;hl7_json_object&quot;, hl7JsonObject);</script>
+    </com.mirth.connect.plugins.javascriptstep.JavaScriptStep>
+    <com.mirth.connect.plugins.mapper.MapperStep version="4.5.0">
+      <name>Sending Facility</name>
+      <sequenceNumber>8</sequenceNumber>
+      <enabled>true</enabled>
+      <variable>Sending Facility</variable>
+      <mapping>msg[&apos;HL7Message&apos;][&apos;MSH&apos;][&apos;MSH.4&apos;][&apos;MSH.4.1&apos;].toString().trim()</mapping>
+      <defaultValue></defaultValue>
+      <replacements/>
+      <scope>CHANNEL</scope>
+    </com.mirth.connect.plugins.mapper.MapperStep>
+    <com.mirth.connect.plugins.mapper.MapperStep version="4.5.0">
+      <name>Recieving Facility</name>
+      <sequenceNumber>9</sequenceNumber>
+      <enabled>true</enabled>
+      <variable>Recieving Facility</variable>
+      <mapping>msg[&apos;HL7Message&apos;][&apos;MSH&apos;][&apos;MSH.6&apos;][&apos;MSH.6.1&apos;].toString().trim()</mapping>
+      <defaultValue></defaultValue>
+      <replacements/>
+      <scope>CHANNEL</scope>
+    </com.mirth.connect.plugins.mapper.MapperStep>
+    <com.mirth.connect.plugins.mapper.MapperStep version="4.5.0">
+      <name>Sending Application</name>
+      <sequenceNumber>10</sequenceNumber>
+      <enabled>true</enabled>
+      <variable>Sending Application</variable>
+      <mapping>msg[&apos;HL7Message&apos;][&apos;MSH&apos;][&apos;MSH.3&apos;][&apos;MSH.3.1&apos;].toString().trim()</mapping>
+      <defaultValue></defaultValue>
+      <replacements/>
+      <scope>CHANNEL</scope>
+    </com.mirth.connect.plugins.mapper.MapperStep>
+    <com.mirth.connect.plugins.mapper.MapperStep version="4.5.0">
+      <name>DateTimeOfMessage</name>
+      <sequenceNumber>11</sequenceNumber>
+      <enabled>true</enabled>
+      <variable>DateTimeOfMessage</variable>
+      <mapping>msg[&apos;HL7Message&apos;][&apos;MSH&apos;][&apos;MSH.7&apos;][&apos;MSH.7.1&apos;].toString().trim()</mapping>
+      <defaultValue></defaultValue>
+      <replacements/>
+      <scope>CHANNEL</scope>
+    </com.mirth.connect.plugins.mapper.MapperStep>
+    <com.mirth.connect.plugins.javascriptstep.JavaScriptStep version="4.5.0">
+      <name>DateTimeConversion</name>
+      <sequenceNumber>12</sequenceNumber>
+      <enabled>true</enabled>
+      <script>var hl7HeaderJsonObject = {
+	date_time_message: moment(msg[&apos;HL7Message&apos;][&apos;MSH&apos;][&apos;MSH.7&apos;][&apos;MSH.7.1&apos;].toString(),&quot;YYYYMMDDHHmmss&quot;).format(&quot;MMMM D, YYYY hh:mm A&quot;) //yyyymmdd to yyyy-mm-dd
+	};
+channelMap.put(&quot;hl7HeaderJsonObject&quot;, hl7HeaderJsonObject);</script>
+    </com.mirth.connect.plugins.javascriptstep.JavaScriptStep>
+  </elements>
+  <inboundTemplate encoding="base64">ewogICJITDdNZXNzYWdlIiA6IHsKICAgICJNU0giIDogewogICAgICAiTVNILjEiIDogInwiLAogICAgICAiTVNILjIiIDogIl5+XFwmIiwKICAgICAgIk1TSC4zIiA6IHsKICAgICAgICAiTVNILjMuMSIgOiAiTnRpZXJwcmlzZSIKICAgICAgfSwKICAgICAgIk1TSC40IiA6IHsKICAgICAgICAiTVNILjQuMSIgOiAiTnRpZXJwcmlzZSBDbGluaWMiCiAgICAgIH0sCiAgICAgICJNU0guNSIgOiB7CiAgICAgICAgIk1TSC41LjEiIDogIkhlYWx0aG1hdGljcyBFSFIiCiAgICAgIH0sCiAgICAgICJNU0guNiIgOiB7CiAgICAgICAgIk1TSC42LjEiIDogIkhlYWx0aG1hdGljcyBDbGluaWMiCiAgICAgIH0sCiAgICAgICJNU0guNyIgOiB7CiAgICAgICAgIk1TSC43LjEiIDogMjAxOTA0MjMxMTM5MTAKICAgICAgfSwKICAgICAgIk1TSC44IiA6IG51bGwsCiAgICAgICJNU0guOSIgOiB7CiAgICAgICAgIk1TSC45LjEiIDogIkFEVCIsCiAgICAgICAgIk1TSC45LjIiIDogIkEwOCIKICAgICAgfSwKICAgICAgIk1TSC4xMCIgOiB7CiAgICAgICAgIk1TSC4xMC4xIiA6ICI4ODk5LTM5IgogICAgICB9LAogICAgICAiTVNILjExIiA6IHsKICAgICAgICAiTVNILjExLjEiIDogIlAiCiAgICAgIH0sCiAgICAgICJNU0guMTIiIDogewogICAgICAgICJNU0guMTIuMSIgOiAyLjMKICAgICAgfSwKICAgICAgIk1TSC4xMyIgOiBudWxsLAogICAgICAiTVNILjE0IiA6IG51bGwsCiAgICAgICJNU0guMTUiIDogewogICAgICAgICJNU0guMTUuMSIgOiAiTkUiCiAgICAgIH0sCiAgICAgICJNU0guMTYiIDogewogICAgICAgICJNU0guMTYuMSIgOiAiTkUiCiAgICAgIH0KICAgIH0sCiAgICAiRVZOIiA6IHsKICAgICAgIkVWTi4xIiA6IHsKICAgICAgICAiRVZOLjEuMSIgOiAiQTA4IgogICAgICB9LAogICAgICAiRVZOLjIiIDogewogICAgICAgICJFVk4uMi4xIiA6IDIwMTkwNDIzMTEzOTEwCiAgICAgIH0sCiAgICAgICJFVk4uMyIgOiBudWxsLAogICAgICAiRVZOLjQiIDogewogICAgICAgICJFVk4uNC4xIiA6ICIwMSIKICAgICAgfQogICAgfSwKICAgICJQSUQiIDogewogICAgICAiUElELjEiIDogewogICAgICAgICJQSUQuMS4xIiA6IDEKICAgICAgfSwKICAgICAgIlBJRC4yIiA6IG51bGwsCiAgICAgICJQSUQuMyIgOiB7CiAgICAgICAgIlBJRC4zLjEiIDogMTUxCiAgICAgIH0sCiAgICAgICJQSUQuNCIgOiBudWxsLAogICAgICAiUElELjUiIDogewogICAgICAgICJQSUQuNS4xIiA6ICJCb25kIiwKICAgICAgICAiUElELjUuMiIgOiAiVGlueSIKICAgICAgfSwKICAgICAgIlBJRC42IiA6IG51bGwsCiAgICAgICJQSUQuNyIgOiB7CiAgICAgICAgIlBJRC43LjEiIDogMTk5OTA3MjMKICAgICAgfSwKICAgICAgIlBJRC44IiA6IHsKICAgICAgICAiUElELjguMSIgOiAiTSIKICAgICAgfSwKICAgICAgIlBJRC45IiA6IG51bGwsCiAgICAgICJQSUQuMTAiIDogbnVsbCwKICAgICAgIlBJRC4xMSIgOiB7CiAgICAgICAgIlBJRC4xMS4xIiA6ICI4Mzg4IFNlY3JldCBBZ2VudCBXYXkiLAogICAgICAgICJQSUQuMTEuMiIgOiBudWxsLAogICAgICAgICJQSUQuMTEuMyIgOiAiUmFsZWlnaCIsCiAgICAgICAgIlBJRC4xMS40IiA6ICJOQyIsCiAgICAgICAgIlBJRC4xMS41IiA6IDI3Njc3CiAgICAgIH0sCiAgICAgICJQSUQuMTIiIDogbnVsbCwKICAgICAgIlBJRC4xMyIgOiBudWxsLAogICAgICAiUElELjE0IiA6IG51bGwsCiAgICAgICJQSUQuMTUiIDogbnVsbCwKICAgICAgIlBJRC4xNiIgOiBudWxsLAogICAgICAiUElELjE3IiA6IG51bGwsCiAgICAgICJQSUQuMTgiIDogewogICAgICAgICJQSUQuMTguMSIgOiAxNTEKICAgICAgfSwKICAgICAgIlBJRC4xOSIgOiBudWxsLAogICAgICAiUElELjIwIiA6IG51bGwsCiAgICAgICJQSUQuMjEiIDogbnVsbCwKICAgICAgIlBJRC4yMiIgOiBudWxsLAogICAgICAiUElELjIzIiA6IG51bGwsCiAgICAgICJQSUQuMjQiIDogbnVsbCwKICAgICAgIlBJRC4yNSIgOiBudWxsLAogICAgICAiUElELjI2IiA6IG51bGwsCiAgICAgICJQSUQuMjciIDogbnVsbCwKICAgICAgIlBJRC4yOCIgOiBudWxsLAogICAgICAiUElELjI5IiA6IG51bGwsCiAgICAgICJQSUQuMzAiIDogewogICAgICAgICJQSUQuMzAuMSIgOiAiTiIKICAgICAgfQogICAgfSwKICAgICJOSzEiIDogewogICAgICAiTksxLjEiIDogewogICAgICAgICJOSzEuMS4xIiA6IDEKICAgICAgfSwKICAgICAgIk5LMS4yIiA6IHsKICAgICAgICAiTksxLjIuMSIgOiAiQm9uZCIsCiAgICAgICAgIk5LMS4yLjIiIDogIkxhZHkiLAogICAgICAgICJOSzEuMi4zIiA6ICJUIgogICAgICB9LAogICAgICAiTksxLjMiIDogewogICAgICAgICJOSzEuMy4xIiA6ICJTcG91c2UiLAogICAgICAgICJOSzEuMy4yIiA6ICJTcG91c2UiCiAgICAgIH0sCiAgICAgICJOSzEuNCIgOiB7CiAgICAgICAgIk5LMS40LjEiIDogIjAwNyBTb2hvIExhbmUiLAogICAgICAgICJOSzEuNC4yIiA6IG51bGwsCiAgICAgICAgIk5LMS40LjMiIDogIkNhcnkiLAogICAgICAgICJOSzEuNC40IiA6ICJOQyIsCiAgICAgICAgIk5LMS40LjUiIDogMjc1MTEKICAgICAgfSwKICAgICAgIk5LMS41IiA6IHsKICAgICAgICAiTksxLjUuMSIgOiAiKDkxOSkwMDctMDAwNyIsCiAgICAgICAgIk5LMS41LjIiIDogbnVsbCwKICAgICAgICAiTksxLjUuMyIgOiAiUEgiLAogICAgICAgICJOSzEuNS40IiA6IG51bGwsCiAgICAgICAgIk5LMS41LjUiIDogbnVsbCwKICAgICAgICAiTksxLjUuNiIgOiA5MTksCiAgICAgICAgIk5LMS41LjciIDogIjAwNzAwMDciCiAgICAgIH0KICAgIH0sCiAgICAiUFYxIiA6IHsKICAgICAgIlBWMS4xIiA6IHsKICAgICAgICAiUFYxLjEuMSIgOiAxCiAgICAgIH0sCiAgICAgICJQVjEuMiIgOiB7CiAgICAgICAgIlBWMS4yLjEiIDogIlIiCiAgICAgIH0sCiAgICAgICJQVjEuMyIgOiBudWxsLAogICAgICAiUFYxLjQiIDogbnVsbCwKICAgICAgIlBWMS41IiA6IG51bGwsCiAgICAgICJQVjEuNiIgOiBudWxsLAogICAgICAiUFYxLjciIDogewogICAgICAgICJQVjEuNy4xIiA6ICJNYW5uaW5nIiwKICAgICAgICAiUFYxLjcuMiIgOiAiTWFubmluZyIsCiAgICAgICAgIlBWMS43LjMiIDogIlRlcnJ5IiwKICAgICAgICAiUFYxLjcuNCIgOiBudWxsLAogICAgICAgICJQVjEuNy41IiA6IG51bGwsCiAgICAgICAgIlBWMS43LjYiIDogbnVsbCwKICAgICAgICAiUFYxLjcuNyIgOiBudWxsLAogICAgICAgICJQVjEuNy44IiA6IG51bGwsCiAgICAgICAgIlBWMS43LjkiIDogewogICAgICAgICAgIlBWMS43LjkuMSIgOiBudWxsLAogICAgICAgICAgIlBWMS43LjkuMiIgOiA3NjU0MzIxLAogICAgICAgICAgIlBWMS43LjkuMyIgOiAiVVBJTiIKICAgICAgICB9CiAgICAgIH0sCiAgICAgICJQVjEuOCIgOiBudWxsLAogICAgICAiUFYxLjkiIDogbnVsbCwKICAgICAgIlBWMS4xMCIgOiBudWxsLAogICAgICAiUFYxLjExIiA6IG51bGwsCiAgICAgICJQVjEuMTIiIDogbnVsbCwKICAgICAgIlBWMS4xMyIgOiBudWxsLAogICAgICAiUFYxLjE0IiA6IG51bGwsCiAgICAgICJQVjEuMTUiIDogbnVsbCwKICAgICAgIlBWMS4xNiIgOiB7CiAgICAgICAgIlBWMS4xNi4xIiA6ICJOIgogICAgICB9LAogICAgICAiUFYxLjE3IiA6IG51bGwsCiAgICAgICJQVjEuMTgiIDogewogICAgICAgICJQVjEuMTguMSIgOiAiQSIKICAgICAgfQogICAgfSwKICAgICJHVDEiIDogewogICAgICAiR1QxLjEiIDogewogICAgICAgICJHVDEuMS4xIiA6IDEKICAgICAgfSwKICAgICAgIkdUMS4yIiA6IHsKICAgICAgICAiR1QxLjIuMSIgOiAxNTAKICAgICAgfSwKICAgICAgIkdUMS4zIiA6IHsKICAgICAgICAiR1QxLjMuMSIgOiAiQm9uZCIsCiAgICAgICAgIkdUMS4zLjIiIDogIkphbWVzIiwKICAgICAgICAiR1QxLjMuMyIgOiBudWxsLAogICAgICAgICJHVDEuMy40IiA6ICIwMDciCiAgICAgIH0sCiAgICAgICJHVDEuNCIgOiBudWxsLAogICAgICAiR1QxLjUiIDogewogICAgICAgICJHVDEuNS4xIiA6ICIwMDcgU29obyBMYW5lIiwKICAgICAgICAiR1QxLjUuMiIgOiBudWxsLAogICAgICAgICJHVDEuNS4zIiA6ICJDYXJ5IiwKICAgICAgICAiR1QxLjUuNCIgOiAiTkMiLAogICAgICAgICJHVDEuNS41IiA6IDI3NTExCiAgICAgIH0sCiAgICAgICJHVDEuNiIgOiBbCiAgICAgICAgewogICAgICAgICAgIkdUMS42LjEiIDogIig5MTkpMDA3LTAwMDciLAogICAgICAgICAgIkdUMS42LjIiIDogbnVsbCwKICAgICAgICAgICJHVDEuNi4zIiA6ICJQSCIsCiAgICAgICAgICAiR1QxLjYuNCIgOiBudWxsLAogICAgICAgICAgIkdUMS42LjUiIDogbnVsbCwKICAgICAgICAgICJHVDEuNi42IiA6IDkxOSwKICAgICAgICAgICJHVDEuNi43IiA6ICIwMDcwMDA3IgogICAgICAgIH0sCiAgICAgICAgewogICAgICAgICAgIkdUMS42LjEiIDogIig3NzcpNzA3LTA3MDciLAogICAgICAgICAgIkdUMS42LjIiIDogbnVsbCwKICAgICAgICAgICJHVDEuNi4zIiA6ICJDUCIsCiAgICAgICAgICAiR1QxLjYuNCIgOiBudWxsLAogICAgICAgICAgIkdUMS42LjUiIDogbnVsbCwKICAgICAgICAgICJHVDEuNi42IiA6IDc3NywKICAgICAgICAgICJHVDEuNi43IiA6IDcwNzA3MDcKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICJHVDEuNi4xIiA6IG51bGwsCiAgICAgICAgICAiR1QxLjYuMiIgOiAiTkVUIiwKICAgICAgICAgICJHVDEuNi4zIiA6ICJYLjQwMCIsCiAgICAgICAgICAiR1QxLjYuNCIgOiAiMDA3QEJyaXRpc2hTZWNyZXRTZXJ2aWNlLmNvbSIKICAgICAgICB9CiAgICAgIF0sCiAgICAgICJHVDEuNyIgOiB7CiAgICAgICAgIkdUMS43LjEiIDogIig5MTkpODUxLTYxNzcgWDAwNyIsCiAgICAgICAgIkdUMS43LjIiIDogbnVsbCwKICAgICAgICAiR1QxLjcuMyIgOiBudWxsLAogICAgICAgICJHVDEuNy40IiA6IG51bGwsCiAgICAgICAgIkdUMS43LjUiIDogbnVsbCwKICAgICAgICAiR1QxLjcuNiIgOiA5MTksCiAgICAgICAgIkdUMS43LjciIDogODUxNjE3NywKICAgICAgICAiR1QxLjcuOCIgOiAiMDA3IgogICAgICB9LAogICAgICAiR1QxLjgiIDogewogICAgICAgICJHVDEuOC4xIiA6IDE5NzcwOTIwCiAgICAgIH0sCiAgICAgICJHVDEuOSIgOiB7CiAgICAgICAgIkdUMS45LjEiIDogIk0iCiAgICAgIH0sCiAgICAgICJHVDEuMTAiIDogbnVsbCwKICAgICAgIkdUMS4xMSIgOiBudWxsLAogICAgICAiR1QxLjEyIiA6IHsKICAgICAgICAiR1QxLjEyLjEiIDogIjAwNy0wMC0wMDA3IgogICAgICB9LAogICAgICAiR1QxLjEzIiA6IG51bGwsCiAgICAgICJHVDEuMTQiIDogbnVsbCwKICAgICAgIkdUMS4xNSIgOiBudWxsLAogICAgICAiR1QxLjE2IiA6IG51bGwsCiAgICAgICJHVDEuMTciIDogewogICAgICAgICJHVDEuMTcuMSIgOiAiMjk4OCBFbmdsYW5kIERyaXZlIiwKICAgICAgICAiR1QxLjE3LjIiIDogbnVsbCwKICAgICAgICAiR1QxLjE3LjMiIDogIkxvbmRvbiIsCiAgICAgICAgIkdUMS4xNy40IiA6ICJEQyIKICAgICAgfSwKICAgICAgIkdUMS4xOCIgOiBudWxsLAogICAgICAiR1QxLjE5IiA6IG51bGwsCiAgICAgICJHVDEuMjAiIDogewogICAgICAgICJHVDEuMjAuMSIgOiAiRiIKICAgICAgfSwKICAgICAgIkdUMS4yMSIgOiBudWxsLAogICAgICAiR1QxLjIyIiA6IG51bGwsCiAgICAgICJHVDEuMjMiIDogbnVsbCwKICAgICAgIkdUMS4yNCIgOiBudWxsLAogICAgICAiR1QxLjI1IiA6IG51bGwsCiAgICAgICJHVDEuMjYiIDogbnVsbCwKICAgICAgIkdUMS4yNyIgOiBudWxsLAogICAgICAiR1QxLjI4IiA6IG51bGwsCiAgICAgICJHVDEuMjkiIDogbnVsbCwKICAgICAgIkdUMS4zMCIgOiB7CiAgICAgICAgIkdUMS4zMC4xIiA6ICJNIgogICAgICB9LAogICAgICAiR1QxLjMxIiA6IG51bGwsCiAgICAgICJHVDEuMzIiIDogbnVsbCwKICAgICAgIkdUMS4zMyIgOiBudWxsLAogICAgICAiR1QxLjM0IiA6IG51bGwsCiAgICAgICJHVDEuMzUiIDogbnVsbCwKICAgICAgIkdUMS4zNiIgOiBudWxsLAogICAgICAiR1QxLjM3IiA6IG51bGwsCiAgICAgICJHVDEuMzgiIDogbnVsbCwKICAgICAgIkdUMS4zOSIgOiBudWxsLAogICAgICAiR1QxLjQwIiA6IG51bGwsCiAgICAgICJHVDEuNDEiIDogbnVsbCwKICAgICAgIkdUMS40MiIgOiBudWxsLAogICAgICAiR1QxLjQzIiA6IG51bGwsCiAgICAgICJHVDEuNDQiIDogbnVsbCwKICAgICAgIkdUMS40NSIgOiBudWxsLAogICAgICAiR1QxLjQ2IiA6IG51bGwsCiAgICAgICJHVDEuNDciIDogbnVsbCwKICAgICAgIkdUMS40OCIgOiBudWxsLAogICAgICAiR1QxLjQ5IiA6IG51bGwsCiAgICAgICJHVDEuNTAiIDogbnVsbCwKICAgICAgIkdUMS41MSIgOiB7CiAgICAgICAgIkdUMS41MS4xIiA6ICJCcml0aXNoIFNlY3JldCBTZXJ2aWNlIgogICAgICB9CiAgICB9CiAgfQp9</inboundTemplate>
+  <outboundTemplate encoding="base64"></outboundTemplate>
+  <inboundDataType>JSON</inboundDataType>
+  <outboundDataType>RAW</outboundDataType>
+  <inboundProperties class="com.mirth.connect.plugins.datatypes.json.JSONDataTypeProperties" version="4.5.0">
+    <batchProperties class="com.mirth.connect.plugins.datatypes.json.JSONBatchProperties" version="4.5.0">
+      <splitType>JavaScript</splitType>
+      <batchScript></batchScript>
+    </batchProperties>
+  </inboundProperties>
+  <outboundProperties class="com.mirth.connect.plugins.datatypes.raw.RawDataTypeProperties" version="4.5.0">
+    <batchProperties class="com.mirth.connect.plugins.datatypes.raw.RawBatchProperties" version="4.5.0">
+      <splitType>JavaScript</splitType>
+      <batchScript></batchScript>
+    </batchProperties>
+  </outboundProperties>
+</transformer>

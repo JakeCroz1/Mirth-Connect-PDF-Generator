@@ -1,8 +1,3 @@
-//source: https://librepdf.github.io/OpenPDF/docs-1-2-7/allclasses-noframe.html
-//OpenPDF Classes: https://docs.oracle.com/javase/8/docs/api/allclasses-noframe.html
-//HL7 Messages: https://confluence.hl7.org/display/OO/v2+Sample+Messages
-//headerfooter: https://github.com/LibrePDF/OpenPDF/blob/master/pdf-toolbox/src/test/java/com/lowagie/examples/footer/Footer.java
-//OpenPDF Jar: https://search.maven.org/search?q=g:com.github.librepdf
 var Document = Packages.com.lowagie.text.Document;
 var PageSize = Packages.com.lowagie.text.PageSize;
 var PdfWriter = Packages.com.lowagie.text.pdf.PdfWriter;
@@ -11,17 +6,18 @@ var FontFactory = Packages.com.lowagie.text.FontFactory;
 var PdfPTable = Packages.com.lowagie.text.pdf.PdfPTable;
 var PdfPCell = Packages.com.lowagie.text.pdf.PdfPCell;
 var Phrase = Packages.com.lowagie.text.Phrase;
-var textElement = Packages.com.lowagie.text.Element;
+var textElement =Packages.com.lowagie.text.Element;
 var bodyFont = FontFactory.getFont(FontFactory.HELVETICA, 8);
 var FontFactory = Packages.com.lowagie.text.FontFactory;
 var Paragraph = Packages.com.lowagie.text.Paragraph;
 var document = new Document(PageSize.A4, 36, 36, 65, 36);
 var HeaderFooter = Packages.com.lowagie.text.HeaderFooter;
 var Chunk = Packages.com.lowagie.text.Chunk;
-try {
+try {	
 	const formattedNow = moment().format('YYYY-MM-DD HH:mm:ss');
 	const formattedNow2 = moment().format('YYYY-MM-DD HHmmss');
-	var writer = PdfWriter.getInstance(document, new FileOutputStream("C:/Users/jacob/Downloads/" + $('Message code') + "_" + formattedNow2.toString() + "_" + $('Patient last name') + "_" + $('Patient first name') + ".pdf"));
+	var fileOutputPath = "C:/Users/jacob/Downloads/";//Change the path that fits your file system.
+	var writer = PdfWriter.getInstance(document, new FileOutputStream(fileOutputPath+$('Message code')+"_"+formattedNow2.toString()+"_"+$('Patient last name')+"_"+$('Patient first name')+".pdf"));
 	var width = document.getPageSize().getWidth();
 	var height = document.getPageSize().getHeight();
 	var columnDefinitionSize1 = [33.33, 33.33, 33.33, 33.33, 33.33];
@@ -36,19 +32,19 @@ try {
 	var font20 = FontFactory.getFont(FontFactory.HELVETICA, 20.0);
 	var font12 = FontFactory.getFont(FontFactory.HELVETICA, 12.0);
 	var font9 = FontFactory.getFont(FontFactory.HELVETICA, 9);
-	var tableFields1 = ["First Name", "Last Name", "DOB", "Sex", "Address"];
+	var tableFields1 = ["First Name", "Last Name", "DOB","Sex", "Address"];
 	var tableFields2 = ["Date/Time", "Sending Facility", "Recieving Facility"];
-	var tableFields3 = ["Generated Report", formattedNow2.toString()];
-	var data1 = [$('Patient first name'), $('Patient last name'), $('Patient Date Of Birth'), $('Patient sex'), $('Patient Address')];
+	var tableFields3= ["Generated Report", formattedNow2.toString()];
+	var data1 = [$('Patient first name'), $('Patient last name'), $('Patient Date Of Birth'),$('Patient sex'), $('Patient Address')];
 	var data2 = [$('hl7HeaderJsonObject').date_time_message, $('Sending Facility'), $('Recieving Facility')];
-	var title1Para = new Paragraph("Generated Report", font20);
+	var title1Para = new Paragraph("Generated Report",font20);
 	var title2Para = new Paragraph("Raw Data:");
 	var title3Para = new Paragraph("JSON to HL7 v2.x conversion:");
 	var title4Para = new Paragraph("Date and time of generated report: " + formattedNow.toString(), font12);
 	var title5Para = new Paragraph(new Chunk("Generated Report"));
 	var title6Para = new Paragraph(new Chunk(formattedNow.toString()));
 	var getDICOMRawData = DICOMUtil.getDICOMRawData(connectorMessage);
-	var jsonToXmlString = JsonUtil.toXml(getDICOMRawData)
+	var jsonToXmlString =JsonUtil.toXml(getDICOMRawData)
 	var xmlToHL7 = SerializerFactory.getSerializer('HL7V2').fromXML(jsonToXmlString);
 	var DICOMRawDataPara = new Paragraph(getDICOMRawData, font9);
 	var xmlToHL7Para = new Paragraph(xmlToHL7, font9);
@@ -58,28 +54,28 @@ try {
 	//title5Para.setAlignment(textElement.ALIGN_LEFT)
 	//title6Para.setAlignment(textElement.ALIGN_RIGHT)
 	var header = new HeaderFooter(new Phrase("Generated Report: " + formattedNow), false);
-	var footer = new HeaderFooter(new Phrase("page "), true);
+	var footer = new HeaderFooter(new Phrase("page "),true);
 	header.setAlignment(textElement.ALIGN_CENTER);
 	header.setBorderWidthTop(0);
 	footer.setAlignment(textElement.ALIGN_RIGHT);
 	footer.setBorderWidthBottom(0);
 	document.setHeader(header);
 	document.setFooter(footer);
-
+	
 	document.open();
-
+	
 	//var title5Para = new Paragraph("Page: " + document.getPageNumber());
 	title1Para.setAlignment(textElement.ALIGN_CENTER);
 	//title1Para.setSpacingAfter(spacingAfterZeroPointFive);
-	title2Para.setAlignment(textElement.ALIGN_LEFT);
+     title2Para.setAlignment(textElement.ALIGN_LEFT);
 	//title2Para.setSpacingAfter(spacingAfter);          
 	title3Para.setAlignment(textElement.ALIGN_LEFT);
 	//title3Para.setSpacingAfter(spacingAfter);  
 	title4Para.setAlignment(textElement.ALIGN_CENTER);
-	title4Para.setSpacingAfter(spacingAfter);
+	title4Para.setSpacingAfter(spacingAfter);  
 	//title5Para.setAlignment(textElement.ALIGN_RIGHT);
-
-
+	
+	
 	table1 = new PdfPTable(columnDefinitionSize1);
 	table1.getDefaultCell().setBorder(0);
 	table1.setHorizontalAlignment(0);
@@ -96,8 +92,8 @@ try {
 	cell1.setBackgroundColor(java.awt.Color.black);
 	cell1.setPadding(cellPadding10);
 	table1.addCell(cell1);
-
-	tableFields1.forEach(function (text) {
+	
+	tableFields1.forEach(function(text) {
 		var phrase = new Phrase(text, bodyFont);
 		var cellBody = new PdfPCell(phrase);
 		cellBody.setPadding(cellPadding10);
@@ -106,7 +102,7 @@ try {
 		table1.addCell(cellBody);
 	});
 
-	data1.forEach(function (text) {
+	data1.forEach(function(text) {
 		var phrase = new Phrase(text, bodyFont);
 		var cellBody = new PdfPCell(phrase);
 		cellBody.setPadding(cellPadding10);
@@ -123,7 +119,7 @@ try {
 	table2.setWidthPercentage(100); // Set table width to 100% of page
 	table2.setHeaderRows(1); // Set the first row as header
 	//table2.setSpacingAfter(spacingAfter);
-
+	
 	cell2 = new PdfPCell(new Phrase("Mesage Routing Information", font));
 	cell2.setColspan(columnDefinitionSize2.length);
 	cell2.setHorizontalAlignment(textElement.ALIGN_CENTER);
@@ -131,8 +127,8 @@ try {
 	cell2.setBackgroundColor(java.awt.Color.black);
 	cell2.setPadding(cellPadding10);
 	table2.addCell(cell2);
-
-	tableFields2.forEach(function (text) {
+	
+	tableFields2.forEach(function(text) {
 		var phrase2 = new Phrase(text, bodyFont);
 		var cellBody2 = new PdfPCell(phrase2);
 		cellBody2.setPadding(10);
@@ -141,7 +137,7 @@ try {
 		table2.addCell(cellBody2);
 	});
 
-	data2.forEach(function (text) {
+	data2.forEach(function(text) {
 		var phrase2 = new Phrase(text, bodyFont);
 		var cellBody2 = new PdfPCell(phrase2);
 		cellBody2.setPadding(10);
@@ -155,12 +151,12 @@ try {
 	document.add(table1);
 	document.add(table2);
 	document.add(title3Para);
-	document.add(xmlToHL7Para);
-
+	document.add(xmlToHL7Para);  
+	
 	//document.newPage();
 	//document.add(title5Para);
 	document.add(title2Para);
-	document.add(DICOMRawDataPara);
+	document.add(DICOMRawDataPara);      
 	document.close();
 
 } catch (e) {
