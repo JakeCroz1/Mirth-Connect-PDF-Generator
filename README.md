@@ -14,7 +14,7 @@
 <ul>
   <li><a href="https://www.nextgen.com/solutions/interoperability/mirth-integration-engine/mirth-connect-downloads" target="_blank">Mirth Connect 4.5.0</a> Note: Under Mirth Connect 4.5.0, download the software that is compatible with your operating system.
  </li>
-  <li><a href="https://mvnrepository.com/artifact/com.github.librepdf/openpdf/2.0.1" target="_blank">OpenPDF Jar File</a> Note: Within the table under "Files", click on the "jar (3.4 MB)" button to download the jar file.</li>
+  <li><a href="https://mvnrepository.com/artifact/com.github.librepdf/openpdf/2.0.1" target="_blank">OpenPDF Jar File</a> Note: Within the table under <b>"Files"</b> on the website, click on the <b>"jar (3.4 MB)"</b> button to download the jar file.</li>
   <li><a href="Scripts/OpenPDF">OpenPDF Jar File in this Repository</a> If you're having trouble finding the Jar file in the link above, you can find the OpenPDF Jar File within this repsoitory: <b> "...\Mirth-Connect-PDF-Generator\Scripts\OpenPDF\openpdf-2.0.1.jar"</b></li>
 </ul>
 <h2>Instructions</h2>
